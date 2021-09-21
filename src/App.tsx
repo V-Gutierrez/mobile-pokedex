@@ -6,15 +6,13 @@ import {
   Text,
 } from 'react-native'
 
-
-
 const styles = StyleSheet.create({})
 
 const App = () => {
   return (
     <SafeAreaView >
       <StatusBar />
-      <Text>Template</Text>
+      <Header />
     </SafeAreaView>
   )
 }
