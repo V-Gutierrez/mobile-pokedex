@@ -10,6 +10,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row',
+    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: 20,
+    backgroundColor: '#fff'
   },
   headerTitle: {
     fontSize: 24,
