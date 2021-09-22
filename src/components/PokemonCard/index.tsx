@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native'
-import { PokemonData } from 'types'
+import { PokemonInitialData } from 'types'
 import { parseAssetUrl } from 'utils'
 
 const styles = StyleSheet.create({
@@ -38,9 +38,7 @@ const styles = StyleSheet.create({
   }
 })
 
-type PokemonCardProps = Pick<PokemonData, 'id' | 'name'>
-
-export const PokemonCard: React.FC<PokemonCardProps> = ({ name, id, }) => {
+export const PokemonCard: React.FC<PokemonInitialData> = ({ name, url, }) => {
 
   /* TODO: Write link parser here */
 
@@ -49,7 +47,7 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({ name, id, }) => {
       <View style={styles.card}>
         <Text style={styles.title}>{name}</Text>
         <View style={styles.pokemonImageWrapper}>
-          <Image style={styles.pokemonImage} source={{ uri: parseAssetUrl(id) }} />
+          <Image style={styles.pokemonImage} source={{ uri: parseAssetUrl(url) }} />
         </View>
       </View>
     </TouchableOpacity>
