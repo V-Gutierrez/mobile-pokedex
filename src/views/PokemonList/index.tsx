@@ -1,7 +1,7 @@
 import useAxios from 'axios-hooks'
-import { PokemonCard } from '../../components'
-import React from 'react'
-import { ActivityIndicator, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { AnimatedActivity, PokemonCard } from '../../components'
+import React, { useEffect, useState } from 'react'
+import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { setApi } from '../../services'
 import { PokeAPIResponse, PokemonInitialData } from 'types'
 
@@ -28,22 +28,28 @@ const styles = StyleSheet.create({
   errorText: {
     fontWeight: 'bold',
     fontSize: 15,
+  },
+  listFooterComponent: {
+    height: 60,
+    marginTop: 25,
   }
 })
 
 setApi()
 
 export const PokemonList: React.FC = () => {
-  const [{ data, loading, error }, refetch] = useAxios<PokeAPIResponse>(
-    '/pokemon'
+  const [pageParams, setPageParams] = useState({ limit: 6, initial: true })
+  const [{ data, error }, refetch] = useAxios<PokeAPIResponse>(
+    `/pokemon?limit=${pageParams.limit}`
   )
 
-  if (loading) {
-    return (
-      <View style={styles.boundaryContainer}>
-        <ActivityIndicator size="large" color="#ccc" />
-      </View >
-    )
+  useEffect(() => {
+    refetch()
+  }, [pageParams])
+
+  const handleEndReached = () => {
+    const step = 6
+    setPageParams(prev => ({ limit: prev.limit + step, initial: false }))
   }
 
   if (error) {
@@ -65,6 +71,15 @@ export const PokemonList: React.FC = () => {
       numColumns={2}
       renderItem={({ item, index, separators }: { item: PokemonInitialData, index: number, separators: any }) => <PokemonCard name={item.name} url={item.url} />}
       keyExtractor={item => item.name}
+      onEndReached={handleEndReached}
+      onEndReachedThreshold={0.001}
+      initialScrollIndex={pageParams.initial ? 0 : pageParams.limit / 2 - 3}
+      ListFooterComponent={
+        <View style={styles.boundaryContainer}>
+          <AnimatedActivity />
+        </View >
+      }
+      ListFooterComponentStyle={styles.listFooterComponent}
     />
   )
 }
