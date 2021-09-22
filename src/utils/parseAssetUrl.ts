@@ -1,6 +1,7 @@
-/*
-* @params: {url: string} as POKEAPI url
-*/
+ /**
+   * @param url
+   *   A valid pokeapi url as string
+   */
 
 export const parseAssetUrl = (url: string): string => {
   const id = url.split('/').filter(item => !isNaN(Number(item))).filter(item => item !== '')[0]

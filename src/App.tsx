@@ -1,4 +1,4 @@
-import { Header } from './components'
+import { Header, PokemonList } from './components'
 import React from 'react'
 import {
   SafeAreaView,
@@ -16,6 +16,7 @@ const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Header />
+      <PokemonList />
     </SafeAreaView>
   )
 }

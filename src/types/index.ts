@@ -1,8 +1,11 @@
 /* AUTOMATTICALLY GENERATED TYPES FROM API */
 
+export type PokemonInitialData =  { name: string, url: string }
+
 export interface PokeAPIResponse {
-	name: string
-	url: string
+	results: PokemonInitialData[]
+	next: string,
+	count: number
 }
 
 export interface Ability {
