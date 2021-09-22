@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native'
 import { PokemonInitialData } from '../../types'
-import { parseAssetUrl } from '../../utils'
+import { capitalizeStringFirstIndex, parseAssetUrl } from '../../utils'
 
 const styles = StyleSheet.create({
   card: {
@@ -40,12 +40,10 @@ const styles = StyleSheet.create({
 
 export const PokemonCard: React.FC<PokemonInitialData> = ({ name, url, }) => {
 
-  /* TODO: Write link parser here */
-
   return (
     <TouchableOpacity>
       <View style={styles.card}>
-        <Text style={styles.title}>{name}</Text>
+        <Text style={styles.title}>{capitalizeStringFirstIndex(name)}</Text>
         <View style={styles.pokemonImageWrapper}>
           <Image style={styles.pokemonImage} source={{ uri: parseAssetUrl(url) }} />
         </View>
