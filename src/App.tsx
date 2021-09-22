@@ -1,4 +1,5 @@
-import { Header, PokemonList } from './components'
+import { Header } from './components'
+import { PokemonList } from './views'
 import React from 'react'
 import {
   SafeAreaView,
