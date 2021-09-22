@@ -1,17 +1,20 @@
+import { Header } from './components'
 import React from 'react'
 import {
   SafeAreaView,
-  StatusBar,
   StyleSheet,
-  Text,
 } from 'react-native'
 
-const styles = StyleSheet.create({})
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  }
+})
 
 const App = () => {
   return (
-    <SafeAreaView >
-      <StatusBar />
+    <SafeAreaView style={styles.container}>
       <Header />
     </SafeAreaView>
   )
