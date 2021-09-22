@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native'
-import { PokemonInitialData } from 'types'
-import { parseAssetUrl } from 'utils'
+import { PokemonInitialData } from '../../types'
+import { parseAssetUrl } from '../../utils'
 
 const styles = StyleSheet.create({
   card: {
