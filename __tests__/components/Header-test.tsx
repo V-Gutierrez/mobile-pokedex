@@ -2,7 +2,7 @@ import 'react-native'
 import React from 'react'
 import { Header } from '../../src/components'
 
-import { render, fireEvent } from '@testing-library/react-native'
+import { render } from '@testing-library/react-native'
 import renderer from 'react-test-renderer'
 
 
