@@ -1,10 +1,10 @@
 import { Header } from './components'
-import { PokemonList } from './views'
 import React from 'react'
 import {
   SafeAreaView,
   StyleSheet,
 } from 'react-native'
+import { PokemonList } from './views'
 
 
 const styles = StyleSheet.create({

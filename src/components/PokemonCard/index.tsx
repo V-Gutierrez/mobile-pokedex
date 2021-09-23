@@ -1,11 +1,13 @@
+import { useModal } from '../../hooks'
 import React from 'react'
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native'
 import { PokemonInitialData } from '../../types'
 import { capitalizeStringFirstIndex, parseAssetUrl } from '../../utils'
+import { PokemonModal } from '../../components'
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#CCCC',
+    backgroundColor: '#3D7DCA',
     height: 150,
     width: 170,
     padding: 20,
@@ -27,6 +29,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     borderTopLeftRadius: 100,
     borderBottomLeftRadius: 100,
+    borderBottomRightRadius: 80,
     borderTopRightRadius: 100,
     width: 110,
     height: 110,
@@ -39,15 +42,19 @@ const styles = StyleSheet.create({
 })
 
 export const PokemonCard: React.FC<PokemonInitialData> = ({ name, url, }) => {
+  const { isShowing, toggle } = useModal()
 
   return (
-    <TouchableOpacity>
-      <View style={styles.card}>
-        <Text style={styles.title}>{capitalizeStringFirstIndex(name)}</Text>
-        <View style={styles.pokemonImageWrapper}>
-          <Image style={styles.pokemonImage} source={{ uri: parseAssetUrl(url) }} />
+    <>
+      <TouchableOpacity onPress={toggle}>
+        <View style={styles.card}>
+          <Text style={styles.title}>{capitalizeStringFirstIndex(name)}</Text>
+          <View style={styles.pokemonImageWrapper}>
+            <Image style={styles.pokemonImage} source={{ uri: parseAssetUrl(url) }} />
+          </View>
         </View>
-      </View>
-    </TouchableOpacity>
+      </TouchableOpacity>
+      <PokemonModal pokemonUrl={url} visible={isShowing} onRequestClose={toggle} />
+    </>
   )
 }
