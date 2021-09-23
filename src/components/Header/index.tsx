@@ -11,18 +11,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     borderBottomRightRadius: 20,
-    borderBottomLeftRadius: 20,
-    backgroundColor: '#fff'
+    borderBottomLeftRadius: 60,
+    backgroundColor: '#3D7DCA',
+
   },
   headerTitle: {
     fontSize: 24,
     justifyContent: 'center',
-    marginLeft: 10
+    marginLeft: 20,
+    fontWeight: 'bold',
+    color: '#FFCB05',
   },
   pokeball: {
     zIndex: -1,
-    opacity: 0.2,
-    marginLeft: 75
+    top: 35
   },
   searchIcon: {
     alignItems: 'center',
@@ -43,7 +45,7 @@ export const Header: React.FC = () => {
         <Text style={styles.headerTitle}>Mobile Pokedex</Text>
       </View>
       <View>
-        <Image source={require('../../assets/images/pokeball_background.png')} style={styles.pokeball} />
+        <Image source={require('../../assets/images/025.png')} style={styles.pokeball} />
       </View>
     </View >
   )
