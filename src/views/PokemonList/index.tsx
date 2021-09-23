@@ -75,7 +75,6 @@ export const PokemonList: React.FC = () => {
 
   return (
     <FlatList
-      testID='pokemon-list'
       contentContainerStyle={styles.container}
       data={data?.results}
       numColumns={2}

@@ -20,7 +20,7 @@ export const AnimatedActivity: React.FC = () => {
 
   return (
     <Animated.View style={{ justifyContent: 'center', alignItems: 'center', transform: [{ rotate }] }}>
-      <ActivityIndicator size='large' color='gray' />
+      <ActivityIndicator size='large' color='#fff' />
     </Animated.View>
   )
 }
