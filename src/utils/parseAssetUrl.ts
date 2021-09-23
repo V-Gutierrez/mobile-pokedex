@@ -6,8 +6,8 @@
 export const parseAssetUrl = (url: string): string => {
   const id = url
     .split('/')
-    .filter((item) => !isNaN(Number(item)))
-    .filter((item) => item !== '')[0];
+    .filter(item => !isNaN(Number(item)))
+    .filter(item => item !== '')[0];
 
   const parseID = () => {
     if (Number(id) < 10) {

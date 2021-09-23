@@ -52,7 +52,7 @@ export const PokemonList: React.FC = () => {
 
   const handleEndReached = () => {
     const step = 6;
-    setPageParams((prev) => ({limit: prev.limit + step, initial: false}));
+    setPageParams(prev => ({limit: prev.limit + step, initial: false}));
   };
 
   if (loading && firstLoading) {
@@ -91,7 +91,7 @@ export const PokemonList: React.FC = () => {
         index: number;
         separators: any;
       }) => <PokemonCard name={item.name} url={item.url} />}
-      keyExtractor={(item) => item.name}
+      keyExtractor={item => item.name}
       onEndReached={handleEndReached}
       onEndReachedThreshold={0.001}
       initialScrollIndex={pageParams.initial ? 0 : pageParams.limit / 2 - 3}

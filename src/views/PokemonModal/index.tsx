@@ -72,7 +72,7 @@ interface Props extends ModalProps {
   pokemonUrl: string;
 }
 
-export const PokemonModal: React.FC<Props> = (props) => {
+export const PokemonModal: React.FC<Props> = props => {
   const {pokemonUrl, onRequestClose} = props;
   const [{data, loading}] = useAxios<PokemonData>(pokemonUrl);
 
