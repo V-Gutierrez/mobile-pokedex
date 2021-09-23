@@ -11,6 +11,7 @@ import { PokemonList } from './views'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#3D7DCA',
   }
 })
 
