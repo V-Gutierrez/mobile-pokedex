@@ -1,5 +1,5 @@
-import React from 'react';
-import { ActivityIndicator, Animated, Easing } from 'react-native';
+import React from 'react'
+import { ActivityIndicator, Animated, Easing } from 'react-native'
 
 
 export const AnimatedActivity: React.FC = () => {

@@ -8,9 +8,9 @@ export const parseAssetUrl = (url: string): string => {
 
   const parseID = () => {
   if (Number(id) < 10) {
-      return `00${Number(id)}`;
+      return `00${Number(id)}`
     } else if (Number(id) >= 10 && Number(id) < 100) {
-      return `0${Number(id)}`;
+      return `0${Number(id)}`
     } else if (Number(id) > 99) {
       return id
     }

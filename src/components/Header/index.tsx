@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     fontWeight: 'bold',
     color: '#FFCB05',
+    fontFamily: 'Pokemon'
   },
   pikachu: {
     zIndex: -1,
