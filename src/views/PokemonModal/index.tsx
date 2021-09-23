@@ -2,28 +2,19 @@
 import useAxios from 'axios-hooks'
 import { AnimatedActivity } from '../../components'
 import React from 'react'
-import { Animated, Easing, Image, ImageBackground, Modal, ModalProps, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Animated, Easing, Image, Modal, ModalProps, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { PokemonData } from '../../types'
 import { parseAssetUrl, capitalizeStringFirstIndex } from '../../utils'
+import { BackArrow } from '../../assets/icons'
 
 const breathing = new Animated.Value(0)
 
-Animated.loop(
-  Animated.sequence([
-    Animated.timing(breathing, {
-      toValue: 1.28,
-      duration: 1000,
-      easing: Easing.linear,
-      useNativeDriver: true
-    }),
-    Animated.timing(breathing, {
-      toValue: 1.3,
-      duration: 1000,
-      easing: Easing.linear,
-      useNativeDriver: true
-    })
-  ])
-).start()
+Animated.timing(breathing, {
+  toValue: 1.3,
+  duration: 1000,
+  easing: Easing.linear,
+  useNativeDriver: false
+}).start()
 
 const styles = StyleSheet.create({
   centeredView: {
@@ -43,14 +34,15 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: '#003A70',
     height: 400,
-    borderBottomRightRadius: 50
+    borderBottomRightRadius: 50,
+    paddingTop: 50
   },
   pokemonName: {
-    fontSize: 36,
+    fontSize: 28,
     fontWeight: 'bold',
     color: '#FFCB05',
     marginLeft: 15,
-    marginTop: 30,
+    marginTop: 15,
   },
   pokemonStats: {
     height: 25,
@@ -60,11 +52,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   button: {
-    paddingHorizontal: 15,
-    paddingVertical: 5,
     marginTop: 15,
-    backgroundColor: '#fff',
-    borderRadius: 15
+    borderRadius: 15,
+    marginLeft: 15,
+    width: '15%',
   }
 })
 
@@ -90,6 +81,11 @@ export const PokemonModal: React.FC<Props> = (props) => {
       <View style={styles.container}>
 
         <View style={styles.pokemonWrapper}>
+
+          <TouchableOpacity style={styles.button} onPress={onRequestClose}>
+            <BackArrow />
+          </TouchableOpacity>
+
           <Text style={styles.pokemonName}>{
             loading ? <AnimatedActivity /> : capitalizeStringFirstIndex(data?.name!)}
           </Text>
@@ -113,9 +109,6 @@ export const PokemonModal: React.FC<Props> = (props) => {
           <Text style={styles.stats}>Ordem: {data?.order}</Text>
           <Text style={styles.stats}>Peso: {data?.weight}</Text>
 
-          <TouchableOpacity style={styles.button} onPress={onRequestClose}>
-            <Text>Voltar</Text>
-          </TouchableOpacity>
         </View>
       </View>
     </Modal >
