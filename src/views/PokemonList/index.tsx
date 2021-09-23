@@ -39,11 +39,14 @@ setApi()
 
 export const PokemonList: React.FC = () => {
   const [pageParams, setPageParams] = useState({ limit: 6, initial: true })
-  const [{ data, error }, refetch] = useAxios<PokeAPIResponse>(
+  const [firstLoading, setFirstLoading] = useState(true)
+
+  const [{ data, loading, error }, refetch] = useAxios<PokeAPIResponse>(
     `/pokemon?limit=${pageParams.limit}`
   )
 
   useEffect(() => {
+    setFirstLoading(false)
     refetch()
   }, [pageParams])
 
@@ -51,6 +54,13 @@ export const PokemonList: React.FC = () => {
     const step = 6
     setPageParams(prev => ({ limit: prev.limit + step, initial: false }))
   }
+
+  if (loading && firstLoading)
+    return (
+      <View style={styles.boundaryContainer}>
+        <AnimatedActivity />
+      </View >
+    )
 
   if (error) {
     return (
