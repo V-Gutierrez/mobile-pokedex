@@ -3,7 +3,7 @@ import React from 'react'
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native'
 import { PokemonInitialData } from '../../types'
 import { capitalizeStringFirstIndex, parseAssetUrl } from '../../utils'
-import { PokemonModal } from '../../components'
+import { PokemonModal } from '../../views'
 
 const styles = StyleSheet.create({
   card: {
