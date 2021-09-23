@@ -1,1 +1,1 @@
-export * from './BackArrow'
+export * from './BackArrow';

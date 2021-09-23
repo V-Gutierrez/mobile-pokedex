@@ -1,2 +1,2 @@
-export * from './parseAssetUrl'
-export * from './capitalizeStringFirstIndex'
+export * from './parseAssetUrl';
+export * from './capitalizeStringFirstIndex';

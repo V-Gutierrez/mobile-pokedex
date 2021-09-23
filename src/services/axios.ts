@@ -1,9 +1,8 @@
-import { configure } from 'axios-hooks'
-import Axios from 'axios'
+import {configure} from 'axios-hooks';
+import Axios from 'axios';
 
 const axios = Axios.create({
-  baseURL: 'https://pokeapi.co/api/v2'
-})
+  baseURL: 'https://pokeapi.co/api/v2',
+});
 
-
-export const setApi = () => configure({ axios })
+export const setApi = () => configure({axios});

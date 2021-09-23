@@ -1,9 +1,9 @@
-import { useModal } from '../../hooks'
-import React from 'react'
-import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native'
-import { PokemonInitialData } from '../../types'
-import { capitalizeStringFirstIndex, parseAssetUrl } from '../../utils'
-import { PokemonModal } from '../../views'
+import {useModal} from '../../hooks';
+import React from 'react';
+import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
+import {PokemonInitialData} from '../../types';
+import {capitalizeStringFirstIndex, parseAssetUrl} from '../../utils';
+import {PokemonModal} from '../../views';
 
 const styles = StyleSheet.create({
   card: {
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     color: '#FFF',
     fontWeight: 'bold',
-    zIndex: 1
+    zIndex: 1,
   },
   pokemonImage: {
     width: 130,
@@ -38,11 +38,11 @@ const styles = StyleSheet.create({
     left: 70,
     zIndex: -1,
     alignItems: 'center',
-  }
-})
+  },
+});
 
-export const PokemonCard: React.FC<PokemonInitialData> = ({ name, url, }) => {
-  const { isShowing, toggle } = useModal()
+export const PokemonCard: React.FC<PokemonInitialData> = ({name, url}) => {
+  const {isShowing, toggle} = useModal();
 
   return (
     <>
@@ -50,11 +50,18 @@ export const PokemonCard: React.FC<PokemonInitialData> = ({ name, url, }) => {
         <View style={styles.card}>
           <Text style={styles.title}>{capitalizeStringFirstIndex(name)}</Text>
           <View style={styles.pokemonImageWrapper}>
-            <Image style={styles.pokemonImage} source={{ uri: parseAssetUrl(url) }} />
+            <Image
+              style={styles.pokemonImage}
+              source={{uri: parseAssetUrl(url)}}
+            />
           </View>
         </View>
       </TouchableOpacity>
-      <PokemonModal pokemonUrl={url} visible={isShowing} onRequestClose={toggle} />
+      <PokemonModal
+        pokemonUrl={url}
+        visible={isShowing}
+        onRequestClose={toggle}
+      />
     </>
-  )
-}
+  );
+};
