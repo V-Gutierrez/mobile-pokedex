@@ -2,6 +2,7 @@ import { Header } from './components'
 import React from 'react'
 import {
   SafeAreaView,
+  StatusBar,
   StyleSheet,
 } from 'react-native'
 import { PokemonList } from './views'
@@ -16,6 +17,7 @@ const styles = StyleSheet.create({
 const App = () => {
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar backgroundColor='#003A70' />
       <Header />
       <PokemonList />
     </SafeAreaView>

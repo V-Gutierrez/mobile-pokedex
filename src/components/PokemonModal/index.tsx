@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: '#003A70',
     height: 400,
-    borderBottomRightRadius: 100
+    borderBottomRightRadius: 50
   },
   pokemonName: {
     fontSize: 36,
@@ -77,13 +77,14 @@ interface Props extends ModalProps {
 
 export const PokemonModal: React.FC<Props> = (props) => {
   const { pokemonUrl, onRequestClose } = props
-  const [{ data, loading, error }, refetch] = useAxios<PokemonData>(pokemonUrl)
+  const [{ data, loading }] = useAxios<PokemonData>(pokemonUrl)
 
 
   return (
     <Modal
       animationType='slide'
       presentationStyle='formSheet'
+      statusBarTranslucent
       {...props}
     >
       <View style={styles.container}>

@@ -7,7 +7,7 @@ import { PokemonModal } from '../../components'
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#3D7DCA',
+    backgroundColor: '#003A70',
     height: 150,
     width: 170,
     padding: 20,
