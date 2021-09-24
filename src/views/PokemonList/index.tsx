@@ -20,10 +20,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   tryAgainButton: {
-    padding: 15,
-    marginVertical: 15,
-    backgroundColor: '#ccc',
-    borderRadius: 5,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    backgroundColor: '#ff0000',
+    marginTop: 25,
+    borderRadius: 25,
   },
   errorText: {
     fontWeight: 'bold',
@@ -63,7 +64,7 @@ export const PokemonList: React.FC = () => {
     );
   }
 
-  if (error) {
+  if (true) {
     return (
       <View style={styles.boundaryContainer}>
         <Text style={styles.errorText}>
