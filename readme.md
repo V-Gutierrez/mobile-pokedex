@@ -1,9 +1,4 @@
-v0.0.1
-![ZjP7afZ4PX](https://user-images.githubusercontent.com/62355596/134445388-c930d045-373a-451c-9217-807bccfa4acc.gif)
-
-v0.2.0
-![fhzTsGoKsi](https://user-images.githubusercontent.com/62355596/134604730-b9fcb39d-52a1-430c-a7a7-33528208488a.gif)
-
-v1.0.0
-![fhzTsGoKsi](https://user-images.githubusercontent.com/62355596/134608901-2f8f871e-0e50-4bbc-95f6-10f64ef67013.gif)
-![ifqETL3BzY](https://user-images.githubusercontent.com/62355596/134608929-c0faedf8-4cda-4989-9960-a8eff89c8881.gif)
+![image](https://user-images.githubusercontent.com/62355596/134611997-ebe5b11d-8140-42bb-af34-9469adacee77.png)
+![image](https://user-images.githubusercontent.com/62355596/134612019-64586ddc-c1c1-4ddf-918e-a35c48f7e3d0.png)
+![image](https://user-images.githubusercontent.com/62355596/134612072-4037981c-73a7-4c17-92cb-bbdfa582841d.png)
+![image](https://user-images.githubusercontent.com/62355596/134612155-6d7609cc-0072-4d9c-8959-3fa7fa6e2c44.png)
