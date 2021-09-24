@@ -168,7 +168,9 @@ export const PokemonModal: React.FC<Props> = props => {
           </TouchableOpacity>
           <TouchableOpacity style={[styles.statsBox, styles.statspecies]}>
             <Text style={[styles.stats]}>
-              Espécie: {capitalizeStringFirstIndex(data?.species?.name)}
+              Espécie:{' '}
+              {data?.species?.name &&
+                capitalizeStringFirstIndex(data?.species?.name)}
             </Text>
             <Image
               style={styles.pokeBall}
