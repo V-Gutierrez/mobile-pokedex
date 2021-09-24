@@ -1,6 +1,6 @@
 import React from 'react';
-import {DevSettings} from 'react-native';
 import {ErrorScreen} from '../../views';
+import RNRestart from 'react-native-restart';
 
 interface Props {
   children: React.ReactNode;
@@ -40,7 +40,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
   }
 
   handleUserRestart = async () => {
-    DevSettings.reload();
+    RNRestart.Restart();
   };
 
   render() {

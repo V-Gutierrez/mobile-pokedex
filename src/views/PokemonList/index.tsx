@@ -97,7 +97,7 @@ export const PokemonList: React.FC = () => {
       initialScrollIndex={pageParams.initial ? 0 : pageParams.limit / 2 - 3}
       ListFooterComponent={
         <View style={styles.boundaryContainer}>
-          <AnimatedActivity />
+          <AnimatedsActivity />
         </View>
       }
       ListFooterComponentStyle={styles.listFooterComponent}
