@@ -42,9 +42,7 @@ export const Header: React.FC = () => {
   return (
     <View style={styles.container}>
       <View style={styles.titleAndSearchWrapper}>
-        <Text style={styles.headerTitle} testID="header-title">
-          Mobile Pokedex
-        </Text>
+        <Text style={styles.headerTitle}>Mobile Pokedex</Text>
       </View>
       <View>
         <Image
