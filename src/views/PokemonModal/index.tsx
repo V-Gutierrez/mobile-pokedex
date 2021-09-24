@@ -16,15 +16,6 @@ import {PokemonData} from '../../types';
 import {parseAssetUrl, capitalizeStringFirstIndex} from '../../utils';
 import {BackArrow} from '../../assets/icons';
 
-const breathing = new Animated.Value(0);
-
-Animated.timing(breathing, {
-  toValue: 1.3,
-  duration: 1000,
-  easing: Easing.linear,
-  useNativeDriver: false,
-}).start();
-
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
@@ -36,8 +27,10 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   pokemonImage: {
-    width: 200,
-    height: 200,
+    width: 225,
+    height: 225,
+    position: 'relative',
+    top: 25,
   },
   pokemonWrapper: {
     width: '100%',
@@ -54,11 +47,24 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
   pokemonStats: {
-    height: 25,
+    width: '100%',
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    marginTop: 60,
   },
   stats: {
     color: '#fff',
     fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  statsBox: {
+    width: '45%',
+    padding: 10,
+    borderRadius: 10,
+    margin: 5,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   button: {
     marginTop: 15,
@@ -66,6 +72,18 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     width: '15%',
   },
+  pokeBall: {
+    width: 30,
+    height: 30,
+    position: 'relative',
+    bottom: 18,
+    left: 15,
+  },
+  statexperience: {backgroundColor: '#fc7f7f'},
+  statheight: {backgroundColor: '#48d0b0'},
+  statorder: {backgroundColor: '#b1736c'},
+  statweight: {backgroundColor: '#7c538c'},
+  statspecies: {backgroundColor: '#ee1515'},
 });
 
 interface Props extends ModalProps {
@@ -75,6 +93,15 @@ interface Props extends ModalProps {
 export const PokemonModal: React.FC<Props> = props => {
   const {pokemonUrl, onRequestClose} = props;
   const [{data, loading}] = useAxios<PokemonData>(pokemonUrl);
+
+  const breathing = new Animated.Value(0);
+
+  Animated.timing(breathing, {
+    toValue: 1.3,
+    duration: 1000,
+    easing: Easing.linear,
+    useNativeDriver: false,
+  }).start();
 
   return (
     <Modal
@@ -108,12 +135,46 @@ export const PokemonModal: React.FC<Props> = props => {
             </Animated.View>
           </View>
         </View>
-
         <View style={[styles.pokemonStats, styles.centeredView]}>
-          <Text style={styles.stats}>Exp. base: {data?.base_experience}</Text>
-          <Text style={styles.stats}>Altura: {data?.height}</Text>
-          <Text style={styles.stats}>Ordem: {data?.order}</Text>
-          <Text style={styles.stats}>Peso: {data?.weight}</Text>
+          <TouchableOpacity style={[styles.statsBox, styles.statexperience]}>
+            <Text style={styles.stats}>
+              Experiência base: {data?.base_experience}
+            </Text>
+            <Image
+              style={styles.pokeBall}
+              source={require('../../assets/images/pokeball.png')}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity style={[styles.statsBox, styles.statheight]}>
+            <Text style={[styles.stats]}>Altura: {data?.height}</Text>
+            <Image
+              style={styles.pokeBall}
+              source={require('../../assets/images/pokeball.png')}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity style={[styles.statsBox, styles.statorder]}>
+            <Text style={[styles.stats]}>Ordem: {data?.order}</Text>
+            <Image
+              style={styles.pokeBall}
+              source={require('../../assets/images/pokeball.png')}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity style={[styles.statsBox, styles.statweight]}>
+            <Text style={[styles.stats]}>Peso: {data?.weight}</Text>
+            <Image
+              style={styles.pokeBall}
+              source={require('../../assets/images/pokeball.png')}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity style={[styles.statsBox, styles.statspecies]}>
+            <Text style={[styles.stats]}>
+              Espécie: {capitalizeStringFirstIndex(data?.species?.name)}
+            </Text>
+            <Image
+              style={styles.pokeBall}
+              source={require('../../assets/images/pokeball.png')}
+            />
+          </TouchableOpacity>
         </View>
       </View>
     </Modal>
