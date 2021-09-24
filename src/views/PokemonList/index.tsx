@@ -26,6 +26,10 @@ const styles = StyleSheet.create({
     marginTop: 25,
     borderRadius: 25,
   },
+  tryAgainText: {
+    color: '#fff',
+    fontSize: 20,
+  },
   errorText: {
     fontWeight: 'bold',
     fontSize: 15,
@@ -64,7 +68,7 @@ export const PokemonList: React.FC = () => {
     );
   }
 
-  if (true) {
+  if (error) {
     return (
       <View style={styles.boundaryContainer}>
         <Text style={styles.errorText}>
@@ -74,7 +78,7 @@ export const PokemonList: React.FC = () => {
           style={styles.tryAgainButton}
           onPress={() => refetch()}
         >
-          <Text>Tentar novamente</Text>
+          <Text style={styles.tryAgainText}>Tentar novamente</Text>
         </TouchableOpacity>
       </View>
     );
