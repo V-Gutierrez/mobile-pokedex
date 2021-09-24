@@ -79,6 +79,26 @@ const styles = StyleSheet.create({
     bottom: 18,
     left: 15,
   },
+  boundaryContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  tryAgainButton: {
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    backgroundColor: '#ff0000',
+    marginTop: 25,
+    borderRadius: 25,
+  },
+  tryAgainText: {
+    color: '#fff',
+    fontSize: 20,
+  },
+  errorText: {
+    fontWeight: 'bold',
+    fontSize: 15,
+  },
   statexperience: {backgroundColor: '#fc7f7f'},
   statheight: {backgroundColor: '#48d0b0'},
   statorder: {backgroundColor: '#b1736c'},
@@ -92,7 +112,7 @@ interface Props extends ModalProps {
 
 export const PokemonModal: React.FC<Props> = props => {
   const {pokemonUrl, onRequestClose} = props;
-  const [{data, loading}] = useAxios<PokemonData>(pokemonUrl);
+  const [{data, loading, error}, refetch] = useAxios<PokemonData>(pokemonUrl);
 
   const breathing = new Animated.Value(0);
 
@@ -102,6 +122,44 @@ export const PokemonModal: React.FC<Props> = props => {
     easing: Easing.linear,
     useNativeDriver: false,
   }).start();
+
+  if (loading) {
+    return (
+      <Modal
+        animationType="slide"
+        presentationStyle="formSheet"
+        statusBarTranslucent
+        {...props}
+      >
+        <View style={[styles.boundaryContainer, styles.container]}>
+          <AnimatedActivity />
+        </View>
+      </Modal>
+    );
+  }
+
+  if (error) {
+    return (
+      <Modal
+        animationType="slide"
+        presentationStyle="formSheet"
+        statusBarTranslucent
+        {...props}
+      >
+        <View style={[styles.boundaryContainer, styles.container]}>
+          <Text style={styles.errorText}>
+            Houve um erro ao capturar este pokemon!
+          </Text>
+          <TouchableOpacity
+            style={styles.tryAgainButton}
+            onPress={() => refetch()}
+          >
+            <Text style={styles.tryAgainText}>Tentar novamente</Text>
+          </TouchableOpacity>
+        </View>
+      </Modal>
+    );
+  }
 
   return (
     <Modal
